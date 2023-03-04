@@ -1,0 +1,9 @@
+version: '3.7'
+services:
+  web:
+    image: nginx:latest
+    deploy:
+    ports:
+      - "8083:8082"
+    volumes:
+    - .:/usr/share/nginx/html/
