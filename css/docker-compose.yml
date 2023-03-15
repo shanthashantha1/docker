@@ -1,9 +1,27 @@
-version: '3.7'
+version: '3'
 services:
-  web:
-    image: nginx:latest
-    deploy:
+
+  app:
+    image: app:latest
     ports:
-      - "8083:8082"
-    volumes:
-    - .:/usr/share/nginx/html/
+      - "8082:8082"
+
+    networks:
+      - communicate
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "8083:8083"
+
+    networks:
+      - communicate
+
+networks:
+  communicate:
+    driver: overlay
+
+
+
+
+ 
